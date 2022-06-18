@@ -1,12 +1,16 @@
 import axios from "axios"
-import { showRepositories } from "../hooks/showRepositories"
-
-// let repos = ''
 
 function getRepos(request) {
     axios.get(request)
-        .then(response => showRepositories(response.data))
+        .then(response => {
+            addDataLocalStorage(response.data)
+        })
         .catch(error => console.log(error))
+}
+
+function addDataLocalStorage(datas) {
+    localStorage.clear()
+    localStorage.setItem('repositories', JSON.stringify(datas))
 }
 
 export default getRepos 

@@ -17,6 +17,13 @@ function App() {
         handleRequests()
     }, [])
 
+    // function showRepositories(repos) {
+    //     Object.values(repos)
+    //         .map((item, id) => (
+    //             <Repositories key={id} repository={item} />
+    //         ))
+    // }
+
     return (
         <>
             <Profile
@@ -28,9 +35,10 @@ function App() {
                 func={getRepos}
                 description={'Ver Repositórios'} />
             <section>
+
             </section>
         </>
 
     )
 }
-export default App
+export default App 
