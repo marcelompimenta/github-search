@@ -3,7 +3,8 @@ import Profile from "./ProfileComponent/ProfileComponent"
 import Button from "./ButtonComponent/ButtonComponent"
 import idGen from "./IdGenerator/IdGenerator"
 import getRepos from "./getRepos/getRepos"
-export const section = document.querySelector('section')
+import Repositories from "./RepositoriesComponent/RepositoriesComponent"
+const section = document.querySelector('section')
 
 function App() {
 
@@ -17,12 +18,16 @@ function App() {
         handleRequests()
     }, [])
 
-    // function showRepositories(repos) {
-    //     Object.values(repos)
-    //         .map((item, id) => (
-    //             <Repositories key={id} repository={item} />
-    //         ))
-    // }
+    const repositories = JSON.parse(localStorage.getItem
+        ('repositories'))
+
+    useEffect(() => {
+        if (repositories) {
+            section.appendChild(<Repositories repository={repositories[0]} />)
+        }
+    }, [repositories])
+
+    // caramba não sei o que fazer aqui!!!!  como faço funcionar!!!
 
     return (
         <>

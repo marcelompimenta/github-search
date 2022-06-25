@@ -3,8 +3,8 @@ import idGen from "../IdGenerator/IdGenerator"
 
 function Repositories(repository) {
 
+    console.log(repository);
     const { id, full_name, description, created_at } = repository
-
     return (
         <div>
             <p>{full_name}</p>
